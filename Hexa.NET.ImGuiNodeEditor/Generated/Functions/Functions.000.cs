@@ -215,26 +215,66 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, float value);<br/>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, const ImVec2<br/>
-		/// &<br/>
-		/// value);<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void PushStyleVarNative(StyleVar varIndex, float value)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<StyleVar, float, void>)funcTable[9])(varIndex, value);
+			#else
+			((delegate* unmanaged[Cdecl]<StyleVar, float, void>)funcTable[9])(varIndex, value);
+			#endif
+		}
+
+		/// <summary>
+		/// </summary>
+		public static void PushStyleVar(StyleVar varIndex, float value)
+		{
+			PushStyleVarNative(varIndex, value);
+		}
+
+		/// <summary>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void PushStyleVarNative(StyleVar varIndex, Vector2* value)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<StyleVar, Vector2*, void>)funcTable[10])(varIndex, value);
+			#else
+			((delegate* unmanaged[Cdecl]<StyleVar, nint, void>)funcTable[10])(varIndex, (nint)value);
+			#endif
+		}
+
+		/// <summary>
+		/// </summary>
+		public static void PushStyleVar(StyleVar varIndex, Vector2* value)
+		{
+			PushStyleVarNative(varIndex, value);
+		}
+
+		/// <summary>
+		/// </summary>
+		public static void PushStyleVar(StyleVar varIndex, ref Vector2 value)
+		{
+			fixed (Vector2* pvalue = &value)
+			{
+				PushStyleVarNative(varIndex, (Vector2*)pvalue);
+			}
+		}
+
+		/// <summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PushStyleVarNative(StyleVar varIndex, Vector4* value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<StyleVar, Vector4*, void>)funcTable[9])(varIndex, value);
+			((delegate* unmanaged[Cdecl]<StyleVar, Vector4*, void>)funcTable[11])(varIndex, value);
 			#else
-			((delegate* unmanaged[Cdecl]<StyleVar, nint, void>)funcTable[9])(varIndex, (nint)value);
+			((delegate* unmanaged[Cdecl]<StyleVar, nint, void>)funcTable[11])(varIndex, (nint)value);
 			#endif
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, float value);<br/>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, const ImVec2<br/>
-		/// &<br/>
-		/// value);<br/>
 		/// </summary>
 		public static void PushStyleVar(StyleVar varIndex, Vector4* value)
 		{
@@ -242,10 +282,6 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, float value);<br/>
-		/// IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, const ImVec2<br/>
-		/// &<br/>
-		/// value);<br/>
 		/// </summary>
 		public static void PushStyleVar(StyleVar varIndex, ref Vector4 value)
 		{
@@ -259,9 +295,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PopStyleVarNative(int count)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[10])(count);
+			((delegate* unmanaged[Cdecl]<int, void>)funcTable[12])(count);
 			#else
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[10])(count);
+			((delegate* unmanaged[Cdecl]<int, void>)funcTable[12])(count);
 			#endif
 		}
 
@@ -274,9 +310,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void BeginNative(byte* id, Vector2* size)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte*, Vector2*, void>)funcTable[11])(id, size);
+			((delegate* unmanaged[Cdecl]<byte*, Vector2*, void>)funcTable[13])(id, size);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[11])((nint)id, (nint)size);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[13])((nint)id, (nint)size);
 			#endif
 		}
 
@@ -390,9 +426,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[12])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[14])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[12])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[14])();
 			#endif
 		}
 
@@ -405,9 +441,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void BeginNodeNative(NodeId id)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[13])(id);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[15])(id);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[13])(id);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[15])(id);
 			#endif
 		}
 
@@ -420,9 +456,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void BeginPinNative(PinId id, PinKind kind)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<PinId, PinKind, void>)funcTable[14])(id, kind);
+			((delegate* unmanaged[Cdecl]<PinId, PinKind, void>)funcTable[16])(id, kind);
 			#else
-			((delegate* unmanaged[Cdecl]<PinId, PinKind, void>)funcTable[14])(id, kind);
+			((delegate* unmanaged[Cdecl]<PinId, PinKind, void>)funcTable[16])(id, kind);
 			#endif
 		}
 
@@ -435,9 +471,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PinRectNative(Vector2* a, Vector2* b)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, Vector2*, void>)funcTable[15])(a, b);
+			((delegate* unmanaged[Cdecl]<Vector2*, Vector2*, void>)funcTable[17])(a, b);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[15])((nint)a, (nint)b);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[17])((nint)a, (nint)b);
 			#endif
 		}
 
@@ -477,9 +513,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PinPivotRectNative(Vector2* a, Vector2* b)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, Vector2*, void>)funcTable[16])(a, b);
+			((delegate* unmanaged[Cdecl]<Vector2*, Vector2*, void>)funcTable[18])(a, b);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[16])((nint)a, (nint)b);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[18])((nint)a, (nint)b);
 			#endif
 		}
 
@@ -519,9 +555,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PinPivotSizeNative(Vector2* size)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[17])(size);
+			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[19])(size);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[17])((nint)size);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[19])((nint)size);
 			#endif
 		}
 
@@ -542,9 +578,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PinPivotScaleNative(Vector2* scale)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[18])(scale);
+			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[20])(scale);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[18])((nint)scale);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[20])((nint)scale);
 			#endif
 		}
 
@@ -565,9 +601,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void PinPivotAlignmentNative(Vector2* alignment)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[19])(alignment);
+			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[21])(alignment);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[19])((nint)alignment);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[21])((nint)alignment);
 			#endif
 		}
 
@@ -588,9 +624,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndPinNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[20])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[22])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[20])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[22])();
 			#endif
 		}
 
@@ -603,9 +639,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void GroupNative(Vector2* size)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[21])(size);
+			((delegate* unmanaged[Cdecl]<Vector2*, void>)funcTable[23])(size);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[21])((nint)size);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[23])((nint)size);
 			#endif
 		}
 
@@ -626,9 +662,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndNodeNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[22])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[24])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[22])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[24])();
 			#endif
 		}
 
@@ -641,9 +677,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte BeginGroupHintNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[23])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[25])(nodeId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[23])(nodeId);
+			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[25])(nodeId);
 			#endif
 		}
 
@@ -657,9 +693,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 GetGroupMinNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[24])();
+			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[26])();
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[24])();
+			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[26])();
 			#endif
 		}
 
@@ -673,9 +709,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 GetGroupMaxNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[25])();
+			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[27])();
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[25])();
+			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[27])();
 			#endif
 		}
 
@@ -689,9 +725,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static ImDrawList* GetHintForegroundDrawListNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImDrawList*>)funcTable[26])();
+			return ((delegate* unmanaged[Cdecl]<ImDrawList*>)funcTable[28])();
 			#else
-			return (ImDrawList*)((delegate* unmanaged[Cdecl]<nint>)funcTable[26])();
+			return (ImDrawList*)((delegate* unmanaged[Cdecl]<nint>)funcTable[28])();
 			#endif
 		}
 
@@ -705,9 +741,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static ImDrawList* GetHintBackgroundDrawListNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImDrawList*>)funcTable[27])();
+			return ((delegate* unmanaged[Cdecl]<ImDrawList*>)funcTable[29])();
 			#else
-			return (ImDrawList*)((delegate* unmanaged[Cdecl]<nint>)funcTable[27])();
+			return (ImDrawList*)((delegate* unmanaged[Cdecl]<nint>)funcTable[29])();
 			#endif
 		}
 
@@ -721,9 +757,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndGroupHintNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[28])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[30])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[28])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[30])();
 			#endif
 		}
 
@@ -739,9 +775,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static ImDrawList* GetNodeBackgroundDrawListNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, ImDrawList*>)funcTable[29])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, ImDrawList*>)funcTable[31])(nodeId);
 			#else
-			return (ImDrawList*)((delegate* unmanaged[Cdecl]<NodeId, nint>)funcTable[29])(nodeId);
+			return (ImDrawList*)((delegate* unmanaged[Cdecl]<NodeId, nint>)funcTable[31])(nodeId);
 			#endif
 		}
 
@@ -758,9 +794,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte LinkNative(LinkId id, PinId startPinId, PinId endPinId, Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId, PinId, PinId, Vector4*, float, byte>)funcTable[30])(id, startPinId, endPinId, color, thickness);
+			return ((delegate* unmanaged[Cdecl]<LinkId, PinId, PinId, Vector4*, float, byte>)funcTable[32])(id, startPinId, endPinId, color, thickness);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<LinkId, PinId, PinId, nint, float, byte>)funcTable[30])(id, startPinId, endPinId, (nint)color, thickness);
+			return (byte)((delegate* unmanaged[Cdecl]<LinkId, PinId, PinId, nint, float, byte>)funcTable[32])(id, startPinId, endPinId, (nint)color, thickness);
 			#endif
 		}
 
@@ -783,9 +819,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void FlowNative(LinkId linkId, FlowDirection direction)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<LinkId, FlowDirection, void>)funcTable[31])(linkId, direction);
+			((delegate* unmanaged[Cdecl]<LinkId, FlowDirection, void>)funcTable[33])(linkId, direction);
 			#else
-			((delegate* unmanaged[Cdecl]<LinkId, FlowDirection, void>)funcTable[31])(linkId, direction);
+			((delegate* unmanaged[Cdecl]<LinkId, FlowDirection, void>)funcTable[33])(linkId, direction);
 			#endif
 		}
 
@@ -798,9 +834,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte BeginCreateNative(Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector4*, float, byte>)funcTable[32])(color, thickness);
+			return ((delegate* unmanaged[Cdecl]<Vector4*, float, byte>)funcTable[34])(color, thickness);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, float, byte>)funcTable[32])((nint)color, thickness);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, float, byte>)funcTable[34])((nint)color, thickness);
 			#endif
 		}
 
@@ -826,9 +862,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte QueryNewLinkNative(PinId* startId, PinId* endId, Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId*, PinId*, Vector4*, float, byte>)funcTable[33])(startId, endId, color, thickness);
+			return ((delegate* unmanaged[Cdecl]<PinId*, PinId*, Vector4*, float, byte>)funcTable[35])(startId, endId, color, thickness);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, nint, float, byte>)funcTable[33])((nint)startId, (nint)endId, (nint)color, thickness);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, nint, float, byte>)funcTable[35])((nint)startId, (nint)endId, (nint)color, thickness);
 			#endif
 		}
 
@@ -947,9 +983,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte QueryNewNodeNative(PinId* pinId, Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId*, Vector4*, float, byte>)funcTable[34])(pinId, color, thickness);
+			return ((delegate* unmanaged[Cdecl]<PinId*, Vector4*, float, byte>)funcTable[36])(pinId, color, thickness);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, float, byte>)funcTable[34])((nint)pinId, (nint)color, thickness);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, float, byte>)funcTable[36])((nint)pinId, (nint)color, thickness);
 			#endif
 		}
 
@@ -1008,9 +1044,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptNewItemNative(Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector4*, float, byte>)funcTable[35])(color, thickness);
+			return ((delegate* unmanaged[Cdecl]<Vector4*, float, byte>)funcTable[37])(color, thickness);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, float, byte>)funcTable[35])((nint)color, thickness);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, float, byte>)funcTable[37])((nint)color, thickness);
 			#endif
 		}
 
@@ -1042,9 +1078,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void RejectNewItemNative(Vector4* color, float thickness)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<Vector4*, float, void>)funcTable[36])(color, thickness);
+			((delegate* unmanaged[Cdecl]<Vector4*, float, void>)funcTable[38])(color, thickness);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[36])((nint)color, thickness);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[38])((nint)color, thickness);
 			#endif
 		}
 
@@ -1071,9 +1107,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndCreateNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[37])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[39])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[37])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[39])();
 			#endif
 		}
 
@@ -1086,9 +1122,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte BeginDeleteNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[38])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[40])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[38])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[40])();
 			#endif
 		}
 
@@ -1102,9 +1138,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte QueryDeletedLinkNative(LinkId* linkId, PinId* startId, PinId* endId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId*, PinId*, PinId*, byte>)funcTable[39])(linkId, startId, endId);
+			return ((delegate* unmanaged[Cdecl]<LinkId*, PinId*, PinId*, byte>)funcTable[41])(linkId, startId, endId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, nint, byte>)funcTable[39])((nint)linkId, (nint)startId, (nint)endId);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, nint, nint, byte>)funcTable[41])((nint)linkId, (nint)startId, (nint)endId);
 			#endif
 		}
 
@@ -1196,9 +1232,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte QueryDeletedNodeNative(NodeId* nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId*, byte>)funcTable[40])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId*, byte>)funcTable[42])(nodeId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[40])((nint)nodeId);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[42])((nint)nodeId);
 			#endif
 		}
 
@@ -1221,9 +1257,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptDeletedItemNative(byte deleteDependencies)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte, byte>)funcTable[41])(deleteDependencies);
+			return ((delegate* unmanaged[Cdecl]<byte, byte>)funcTable[43])(deleteDependencies);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte, byte>)funcTable[41])(deleteDependencies);
+			return (byte)((delegate* unmanaged[Cdecl]<byte, byte>)funcTable[43])(deleteDependencies);
 			#endif
 		}
 
@@ -1237,9 +1273,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void RejectDeletedItemNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[42])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[44])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[42])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[44])();
 			#endif
 		}
 
@@ -1252,9 +1288,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndDeleteNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[43])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[45])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[43])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[45])();
 			#endif
 		}
 
@@ -1267,9 +1303,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SetNodePositionNative(NodeId nodeId, Vector2* editorPosition)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, Vector2*, void>)funcTable[44])(nodeId, editorPosition);
+			((delegate* unmanaged[Cdecl]<NodeId, Vector2*, void>)funcTable[46])(nodeId, editorPosition);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, nint, void>)funcTable[44])(nodeId, (nint)editorPosition);
+			((delegate* unmanaged[Cdecl]<NodeId, nint, void>)funcTable[46])(nodeId, (nint)editorPosition);
 			#endif
 		}
 
@@ -1290,9 +1326,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SetGroupSizeNative(NodeId nodeId, Vector2* size)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, Vector2*, void>)funcTable[45])(nodeId, size);
+			((delegate* unmanaged[Cdecl]<NodeId, Vector2*, void>)funcTable[47])(nodeId, size);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, nint, void>)funcTable[45])(nodeId, (nint)size);
+			((delegate* unmanaged[Cdecl]<NodeId, nint, void>)funcTable[47])(nodeId, (nint)size);
 			#endif
 		}
 
@@ -1313,9 +1349,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 GetNodePositionNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[46])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[48])(nodeId);
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[46])(nodeId);
+			return (Vector2)((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[48])(nodeId);
 			#endif
 		}
 
@@ -1329,9 +1365,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 GetNodeSizeNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[47])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[49])(nodeId);
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[47])(nodeId);
+			return (Vector2)((delegate* unmanaged[Cdecl]<NodeId, Vector2>)funcTable[49])(nodeId);
 			#endif
 		}
 
@@ -1345,9 +1381,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void CenterNodeOnScreenNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[48])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[50])(nodeId);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[48])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[50])(nodeId);
 			#endif
 		}
 
@@ -1360,9 +1396,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SetNodeZPositionNative(NodeId nodeId, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, float, void>)funcTable[49])(nodeId, z);
+			((delegate* unmanaged[Cdecl]<NodeId, float, void>)funcTable[51])(nodeId, z);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, float, void>)funcTable[49])(nodeId, z);
+			((delegate* unmanaged[Cdecl]<NodeId, float, void>)funcTable[51])(nodeId, z);
 			#endif
 		}
 
@@ -1375,9 +1411,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static float GetNodeZPositionNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, float>)funcTable[50])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, float>)funcTable[52])(nodeId);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<NodeId, float>)funcTable[50])(nodeId);
+			return (float)((delegate* unmanaged[Cdecl]<NodeId, float>)funcTable[52])(nodeId);
 			#endif
 		}
 
@@ -1391,9 +1427,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void RestoreNodeStateNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[51])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[53])(nodeId);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[51])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[53])(nodeId);
 			#endif
 		}
 
@@ -1406,9 +1442,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SuspendNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[52])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[54])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[52])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[54])();
 			#endif
 		}
 
@@ -1421,9 +1457,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void ResumeNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[53])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[55])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[53])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[55])();
 			#endif
 		}
 
@@ -1436,9 +1472,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsSuspendedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[54])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[56])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[54])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[56])();
 			#endif
 		}
 
@@ -1452,9 +1488,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsActiveNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[55])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[57])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[55])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[57])();
 			#endif
 		}
 
@@ -1468,9 +1504,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte HasSelectionChangedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[56])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[58])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[56])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[58])();
 			#endif
 		}
 
@@ -1484,9 +1520,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetSelectedObjectCountNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[57])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[59])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[57])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[59])();
 			#endif
 		}
 
@@ -1500,9 +1536,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetSelectedNodesNative(NodeId* nodes, int size)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[58])(nodes, size);
+			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[60])(nodes, size);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[58])((nint)nodes, size);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[60])((nint)nodes, size);
 			#endif
 		}
 
@@ -1525,9 +1561,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetSelectedLinksNative(LinkId* links, int size)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId*, int, int>)funcTable[59])(links, size);
+			return ((delegate* unmanaged[Cdecl]<LinkId*, int, int>)funcTable[61])(links, size);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[59])((nint)links, size);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[61])((nint)links, size);
 			#endif
 		}
 
@@ -1550,9 +1586,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsNodeSelectedNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[60])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[62])(nodeId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[60])(nodeId);
+			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[62])(nodeId);
 			#endif
 		}
 
@@ -1566,9 +1602,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsLinkSelectedNative(LinkId linkId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[61])(linkId);
+			return ((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[63])(linkId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[61])(linkId);
+			return (byte)((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[63])(linkId);
 			#endif
 		}
 
@@ -1582,9 +1618,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void ClearSelectionNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[62])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[64])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[62])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[64])();
 			#endif
 		}
 
@@ -1597,9 +1633,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SelectNodeNative(NodeId nodeId, byte append)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, byte, void>)funcTable[63])(nodeId, append);
+			((delegate* unmanaged[Cdecl]<NodeId, byte, void>)funcTable[65])(nodeId, append);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, byte, void>)funcTable[63])(nodeId, append);
+			((delegate* unmanaged[Cdecl]<NodeId, byte, void>)funcTable[65])(nodeId, append);
 			#endif
 		}
 
@@ -1612,9 +1648,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void SelectLinkNative(LinkId linkId, byte append)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<LinkId, byte, void>)funcTable[64])(linkId, append);
+			((delegate* unmanaged[Cdecl]<LinkId, byte, void>)funcTable[66])(linkId, append);
 			#else
-			((delegate* unmanaged[Cdecl]<LinkId, byte, void>)funcTable[64])(linkId, append);
+			((delegate* unmanaged[Cdecl]<LinkId, byte, void>)funcTable[66])(linkId, append);
 			#endif
 		}
 
@@ -1627,9 +1663,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void DeselectNodeNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[65])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[67])(nodeId);
 			#else
-			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[65])(nodeId);
+			((delegate* unmanaged[Cdecl]<NodeId, void>)funcTable[67])(nodeId);
 			#endif
 		}
 
@@ -1642,9 +1678,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void DeselectLinkNative(LinkId linkId)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<LinkId, void>)funcTable[66])(linkId);
+			((delegate* unmanaged[Cdecl]<LinkId, void>)funcTable[68])(linkId);
 			#else
-			((delegate* unmanaged[Cdecl]<LinkId, void>)funcTable[66])(linkId);
+			((delegate* unmanaged[Cdecl]<LinkId, void>)funcTable[68])(linkId);
 			#endif
 		}
 
@@ -1657,9 +1693,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte DeleteNodeNative(NodeId nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[67])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[69])(nodeId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[67])(nodeId);
+			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[69])(nodeId);
 			#endif
 		}
 
@@ -1673,9 +1709,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte DeleteLinkNative(LinkId linkId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[68])(linkId);
+			return ((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[70])(linkId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[68])(linkId);
+			return (byte)((delegate* unmanaged[Cdecl]<LinkId, byte>)funcTable[70])(linkId);
 			#endif
 		}
 
@@ -1686,20 +1722,38 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API bool HasAnyLinks(NodeId nodeId); // Returns true if node has any link connected<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static byte HasAnyLinksNative(NodeId nodeId)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[71])(nodeId);
+			#else
+			return (byte)((delegate* unmanaged[Cdecl]<NodeId, byte>)funcTable[71])(nodeId);
+			#endif
+		}
+
+		/// <summary>
+		/// </summary>
+		public static bool HasAnyLinks(NodeId nodeId)
+		{
+			byte ret = HasAnyLinksNative(nodeId);
+			return ret != 0;
+		}
+
+		/// <summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte HasAnyLinksNative(PinId pinId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[69])(pinId);
+			return ((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[72])(pinId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[69])(pinId);
+			return (byte)((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[72])(pinId);
 			#endif
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API bool HasAnyLinks(NodeId nodeId); // Returns true if node has any link connected<br/>
 		/// </summary>
 		public static bool HasAnyLinks(PinId pinId)
 		{
@@ -1708,20 +1762,38 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API int BreakLinks(NodeId nodeId); // Break all links connected to this node<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static int BreakLinksNative(NodeId nodeId)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<NodeId, int>)funcTable[73])(nodeId);
+			#else
+			return (int)((delegate* unmanaged[Cdecl]<NodeId, int>)funcTable[73])(nodeId);
+			#endif
+		}
+
+		/// <summary>
+		/// </summary>
+		public static int BreakLinks(NodeId nodeId)
+		{
+			int ret = BreakLinksNative(nodeId);
+			return ret;
+		}
+
+		/// <summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int BreakLinksNative(PinId pinId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId, int>)funcTable[70])(pinId);
+			return ((delegate* unmanaged[Cdecl]<PinId, int>)funcTable[74])(pinId);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<PinId, int>)funcTable[70])(pinId);
+			return (int)((delegate* unmanaged[Cdecl]<PinId, int>)funcTable[74])(pinId);
 			#endif
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API int BreakLinks(NodeId nodeId); // Break all links connected to this node<br/>
 		/// </summary>
 		public static int BreakLinks(PinId pinId)
 		{
@@ -1733,9 +1805,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void NavigateToContentNative(float duration)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<float, void>)funcTable[71])(duration);
+			((delegate* unmanaged[Cdecl]<float, void>)funcTable[75])(duration);
 			#else
-			((delegate* unmanaged[Cdecl]<float, void>)funcTable[71])(duration);
+			((delegate* unmanaged[Cdecl]<float, void>)funcTable[75])(duration);
 			#endif
 		}
 
@@ -1748,9 +1820,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void NavigateToSelectionNative(byte zoomIn, float duration)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte, float, void>)funcTable[72])(zoomIn, duration);
+			((delegate* unmanaged[Cdecl]<byte, float, void>)funcTable[76])(zoomIn, duration);
 			#else
-			((delegate* unmanaged[Cdecl]<byte, float, void>)funcTable[72])(zoomIn, duration);
+			((delegate* unmanaged[Cdecl]<byte, float, void>)funcTable[76])(zoomIn, duration);
 			#endif
 		}
 
@@ -1763,9 +1835,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte ShowNodeContextMenuNative(NodeId* nodeId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId*, byte>)funcTable[73])(nodeId);
+			return ((delegate* unmanaged[Cdecl]<NodeId*, byte>)funcTable[77])(nodeId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[73])((nint)nodeId);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[77])((nint)nodeId);
 			#endif
 		}
 
@@ -1788,9 +1860,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte ShowPinContextMenuNative(PinId* pinId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId*, byte>)funcTable[74])(pinId);
+			return ((delegate* unmanaged[Cdecl]<PinId*, byte>)funcTable[78])(pinId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[74])((nint)pinId);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[78])((nint)pinId);
 			#endif
 		}
 
@@ -1813,9 +1885,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte ShowLinkContextMenuNative(LinkId* linkId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId*, byte>)funcTable[75])(linkId);
+			return ((delegate* unmanaged[Cdecl]<LinkId*, byte>)funcTable[79])(linkId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[75])((nint)linkId);
+			return (byte)((delegate* unmanaged[Cdecl]<nint, byte>)funcTable[79])((nint)linkId);
 			#endif
 		}
 
@@ -1838,9 +1910,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte ShowBackgroundContextMenuNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[76])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[80])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[76])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[80])();
 			#endif
 		}
 
@@ -1854,9 +1926,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EnableShortcutsNative(byte enable)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte, void>)funcTable[77])(enable);
+			((delegate* unmanaged[Cdecl]<byte, void>)funcTable[81])(enable);
 			#else
-			((delegate* unmanaged[Cdecl]<byte, void>)funcTable[77])(enable);
+			((delegate* unmanaged[Cdecl]<byte, void>)funcTable[81])(enable);
 			#endif
 		}
 
@@ -1869,9 +1941,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AreShortcutsEnabledNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[78])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[82])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[78])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[82])();
 			#endif
 		}
 
@@ -1885,9 +1957,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte BeginShortcutNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[79])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[83])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[79])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[83])();
 			#endif
 		}
 
@@ -1901,9 +1973,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptCutNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[80])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[84])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[80])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[84])();
 			#endif
 		}
 
@@ -1917,9 +1989,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptCopyNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[81])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[85])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[81])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[85])();
 			#endif
 		}
 
@@ -1933,9 +2005,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptPasteNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[82])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[86])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[82])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[86])();
 			#endif
 		}
 
@@ -1949,9 +2021,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptDuplicateNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[83])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[87])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[83])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[87])();
 			#endif
 		}
 
@@ -1965,9 +2037,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte AcceptCreateNodeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[84])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[88])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[84])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[88])();
 			#endif
 		}
 
@@ -1981,9 +2053,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetActionContextSizeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[85])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[89])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[85])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[89])();
 			#endif
 		}
 
@@ -1997,9 +2069,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetActionContextNodesNative(NodeId* nodes, int size)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[86])(nodes, size);
+			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[90])(nodes, size);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[86])((nint)nodes, size);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[90])((nint)nodes, size);
 			#endif
 		}
 
@@ -2022,9 +2094,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetActionContextLinksNative(LinkId* links, int size)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId*, int, int>)funcTable[87])(links, size);
+			return ((delegate* unmanaged[Cdecl]<LinkId*, int, int>)funcTable[91])(links, size);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[87])((nint)links, size);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[91])((nint)links, size);
 			#endif
 		}
 
@@ -2047,9 +2119,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static void EndShortcutNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[88])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[92])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[88])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[92])();
 			#endif
 		}
 
@@ -2062,9 +2134,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static float GetCurrentZoomNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<float>)funcTable[89])();
+			return ((delegate* unmanaged[Cdecl]<float>)funcTable[93])();
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<float>)funcTable[89])();
+			return (float)((delegate* unmanaged[Cdecl]<float>)funcTable[93])();
 			#endif
 		}
 
@@ -2078,9 +2150,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static NodeId GetHoveredNodeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId>)funcTable[90])();
+			return ((delegate* unmanaged[Cdecl]<NodeId>)funcTable[94])();
 			#else
-			return (NodeId)((delegate* unmanaged[Cdecl]<NodeId>)funcTable[90])();
+			return (NodeId)((delegate* unmanaged[Cdecl]<NodeId>)funcTable[94])();
 			#endif
 		}
 
@@ -2094,9 +2166,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static PinId GetHoveredPinNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId>)funcTable[91])();
+			return ((delegate* unmanaged[Cdecl]<PinId>)funcTable[95])();
 			#else
-			return (PinId)((delegate* unmanaged[Cdecl]<PinId>)funcTable[91])();
+			return (PinId)((delegate* unmanaged[Cdecl]<PinId>)funcTable[95])();
 			#endif
 		}
 
@@ -2110,9 +2182,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static LinkId GetHoveredLinkNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId>)funcTable[92])();
+			return ((delegate* unmanaged[Cdecl]<LinkId>)funcTable[96])();
 			#else
-			return (LinkId)((delegate* unmanaged[Cdecl]<LinkId>)funcTable[92])();
+			return (LinkId)((delegate* unmanaged[Cdecl]<LinkId>)funcTable[96])();
 			#endif
 		}
 
@@ -2126,9 +2198,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static NodeId GetDoubleClickedNodeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId>)funcTable[93])();
+			return ((delegate* unmanaged[Cdecl]<NodeId>)funcTable[97])();
 			#else
-			return (NodeId)((delegate* unmanaged[Cdecl]<NodeId>)funcTable[93])();
+			return (NodeId)((delegate* unmanaged[Cdecl]<NodeId>)funcTable[97])();
 			#endif
 		}
 
@@ -2142,9 +2214,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static PinId GetDoubleClickedPinNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId>)funcTable[94])();
+			return ((delegate* unmanaged[Cdecl]<PinId>)funcTable[98])();
 			#else
-			return (PinId)((delegate* unmanaged[Cdecl]<PinId>)funcTable[94])();
+			return (PinId)((delegate* unmanaged[Cdecl]<PinId>)funcTable[98])();
 			#endif
 		}
 
@@ -2158,9 +2230,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static LinkId GetDoubleClickedLinkNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId>)funcTable[95])();
+			return ((delegate* unmanaged[Cdecl]<LinkId>)funcTable[99])();
 			#else
-			return (LinkId)((delegate* unmanaged[Cdecl]<LinkId>)funcTable[95])();
+			return (LinkId)((delegate* unmanaged[Cdecl]<LinkId>)funcTable[99])();
 			#endif
 		}
 
@@ -2174,9 +2246,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsBackgroundClickedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[96])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[100])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[96])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[100])();
 			#endif
 		}
 
@@ -2190,9 +2262,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte IsBackgroundDoubleClickedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[97])();
+			return ((delegate* unmanaged[Cdecl]<byte>)funcTable[101])();
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[97])();
+			return (byte)((delegate* unmanaged[Cdecl]<byte>)funcTable[101])();
 			#endif
 		}
 
@@ -2206,9 +2278,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetBackgroundClickButtonIndexNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[98])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[102])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[98])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[102])();
 			#endif
 		}
 
@@ -2222,9 +2294,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetBackgroundDoubleClickButtonIndexNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[99])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[103])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[99])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[103])();
 			#endif
 		}
 
@@ -2238,9 +2310,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte GetLinkPinsNative(LinkId linkId, PinId* startPinId, PinId* endPinId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<LinkId, PinId*, PinId*, byte>)funcTable[100])(linkId, startPinId, endPinId);
+			return ((delegate* unmanaged[Cdecl]<LinkId, PinId*, PinId*, byte>)funcTable[104])(linkId, startPinId, endPinId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<LinkId, nint, nint, byte>)funcTable[100])(linkId, (nint)startPinId, (nint)endPinId);
+			return (byte)((delegate* unmanaged[Cdecl]<LinkId, nint, nint, byte>)funcTable[104])(linkId, (nint)startPinId, (nint)endPinId);
 			#endif
 		}
 
@@ -2284,9 +2356,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static byte PinHadAnyLinksNative(PinId pinId)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[101])(pinId);
+			return ((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[105])(pinId);
 			#else
-			return (byte)((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[101])(pinId);
+			return (byte)((delegate* unmanaged[Cdecl]<PinId, byte>)funcTable[105])(pinId);
 			#endif
 		}
 
@@ -2300,9 +2372,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 GetScreenSizeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[102])();
+			return ((delegate* unmanaged[Cdecl]<Vector2>)funcTable[106])();
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[102])();
+			return (Vector2)((delegate* unmanaged[Cdecl]<Vector2>)funcTable[106])();
 			#endif
 		}
 
@@ -2316,9 +2388,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 ScreenToCanvasNative(Vector2* pos)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector2*, Vector2>)funcTable[103])(pos);
+			return ((delegate* unmanaged[Cdecl]<Vector2*, Vector2>)funcTable[107])(pos);
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<nint, Vector2>)funcTable[103])((nint)pos);
+			return (Vector2)((delegate* unmanaged[Cdecl]<nint, Vector2>)funcTable[107])((nint)pos);
 			#endif
 		}
 
@@ -2341,9 +2413,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static Vector2 CanvasToScreenNative(Vector2* pos)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Vector2*, Vector2>)funcTable[104])(pos);
+			return ((delegate* unmanaged[Cdecl]<Vector2*, Vector2>)funcTable[108])(pos);
 			#else
-			return (Vector2)((delegate* unmanaged[Cdecl]<nint, Vector2>)funcTable[104])((nint)pos);
+			return (Vector2)((delegate* unmanaged[Cdecl]<nint, Vector2>)funcTable[108])((nint)pos);
 			#endif
 		}
 
@@ -2366,9 +2438,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetNodeCountNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[105])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[109])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[105])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[109])();
 			#endif
 		}
 
@@ -2382,9 +2454,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		internal static int GetOrderedNodeIdsNative(NodeId* nodes, int size)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[106])(nodes, size);
+			return ((delegate* unmanaged[Cdecl]<NodeId*, int, int>)funcTable[110])(nodes, size);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[106])((nint)nodes, size);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[110])((nint)nodes, size);
 			#endif
 		}
 
@@ -2400,6 +2472,29 @@ namespace Hexa.NET.ImGuiNodeEditor
 			{
 				int ret = GetOrderedNodeIdsNative((NodeId*)pnodes, size);
 				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void SetImGuiContextNative(ImGuiContext* ctx)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImGuiContext*, void>)funcTable[111])(ctx);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[111])((nint)ctx);
+			#endif
+		}
+
+		public static void SetImGuiContext(ImGuiContext* ctx)
+		{
+			SetImGuiContextNative(ctx);
+		}
+
+		public static void SetImGuiContext(ref ImGuiContext ctx)
+		{
+			fixed (ImGuiContext* pctx = &ctx)
+			{
+				SetImGuiContextNative((ImGuiContext*)pctx);
 			}
 		}
 

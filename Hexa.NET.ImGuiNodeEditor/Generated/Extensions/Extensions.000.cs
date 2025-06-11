@@ -118,6 +118,22 @@ namespace Hexa.NET.ImGuiNodeEditor
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// </summary>
+		public static bool HasAnyLinks(this NodeId nodeId)
+		{
+			byte ret = ImGuiNodeEditor.HasAnyLinksNative(nodeId);
+			return ret != 0;
+		}
+
+		/// <summary>
+		/// </summary>
+		public static int BreakLinks(this NodeId nodeId)
+		{
+			int ret = ImGuiNodeEditor.BreakLinksNative(nodeId);
+			return ret;
+		}
+
 		public static bool Link(this LinkId id, PinId startPinId, PinId endPinId, Vector4* color, float thickness)
 		{
 			byte ret = ImGuiNodeEditor.LinkNative(id, startPinId, endPinId, color, thickness);
@@ -202,7 +218,6 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API bool HasAnyLinks(NodeId nodeId); // Returns true if node has any link connected<br/>
 		/// </summary>
 		public static bool HasAnyLinks(this PinId pinId)
 		{
@@ -211,7 +226,6 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 		/// <summary>
-		/// IMGUI_NODE_EDITOR_API int BreakLinks(NodeId nodeId); // Break all links connected to this node<br/>
 		/// </summary>
 		public static int BreakLinks(this PinId pinId)
 		{

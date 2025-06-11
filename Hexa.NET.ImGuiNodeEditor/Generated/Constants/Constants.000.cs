@@ -15,9 +15,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 {
 	public unsafe partial class ImGuiNodeEditor
 	{
-		public const string IMGUI_NODE_EDITOR_VERSION = "0.9.4";
+		public const string IMGUI_NODE_EDITOR_VERSION = "0.10.0";
 
-		public const int IMGUI_NODE_EDITOR_VERSION_NUM = 000904;
+		public const int IMGUI_NODE_EDITOR_VERSION_NUM = 001000;
 
 	}
 }

@@ -10,6 +10,57 @@
   "ImportType": "FunctionTable",
   "ConstantNamingConvention": "Unknown",
   "IgnoredTypes": [ "ImVec4", "ImVec3", "ImVec2", "ImVector_ImDrawCmd" ],
+  "FunctionMappings": [
+    {
+      "ExportedName": "PushStyleVar_Float",
+      "FriendlyName": "PushStyleVar",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "PushStyleVar_ImVec2",
+      "FriendlyName": "PushStyleVar",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "PushStyleVar_ImVec4",
+      "FriendlyName": "PushStyleVar",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "HasAnyLinks_NodeId",
+      "FriendlyName": "HasAnyLinks",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "HasAnyLinks_PinId",
+      "FriendlyName": "HasAnyLinks",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "BreakLinks_NodeId",
+      "FriendlyName": "BreakLinks",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    },
+    {
+      "ExportedName": "BreakLinks_PinId",
+      "FriendlyName": "BreakLinks",
+      "Comment": "",
+      "Defaults": {},
+      "CustomVariations": []
+    }
+  ],
   "TypeMappings": {
     "ImVector_ImDrawCmd": "ImVector<ImDrawCmd>",
     "ImVector<float>": "ImVector<float>",

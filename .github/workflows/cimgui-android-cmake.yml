@@ -56,7 +56,7 @@ jobs:
       if: matrix.lib == 'cimguinodeeditor'
       with:
         repository: 'ret2end/imgui-node-editor'
-        path: 'imgui-node-editor'
+        path: 'cimguinodeeditor'
         ref: 'hexa-integration'
         submodules: true
 

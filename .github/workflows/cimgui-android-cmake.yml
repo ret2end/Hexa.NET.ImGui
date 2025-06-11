@@ -20,6 +20,9 @@ jobs:
           - os: ubuntu-latest
             arch: x86_64
             lib: cimplot
+          - os: ubuntu-latest
+            arch: x86_64
+            lib: cimguinodeeditor
             
     steps:
     - uses: actions/checkout@v4.1.7
@@ -47,6 +50,14 @@ jobs:
       with:
         repository: 'JunaMeinhold/cimplot'
         path: 'cimplot'
+        submodules: true
+
+    - uses: actions/checkout@v4.1.7
+      if: matrix.lib == 'cimguinodeeditor'
+      with:
+        repository: 'ret2end/imgui-node-editor'
+        path: 'imgui-node-editor'
+        ref: 'hexa-integration'
         submodules: true
 
     - name: Install dependencies on Ubuntu

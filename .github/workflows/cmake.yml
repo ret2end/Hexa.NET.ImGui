@@ -1,0 +1,91 @@
+name: Build ImGui and Addons Libraries
+
+on: [workflow_dispatch]
+
+jobs:
+  build-cimgui:
+    uses: JunaMeinhold/cmake-actions/.github/workflows/cmake.yml@v1.x.x
+    with:
+      lib-name: cimgui
+      repo: JunaMeinhold/cimgui
+      repo-tag: docking_inter
+      cmake-flags: -DIMGUI_WCHAR32=ON -DIMGUI_FREETYPE=ON
+      use-vcpkg: true
+      vcpkg-packages: freetype
+      bin-name-linux: cimgui.so
+      bin-name-linux-normalized: cimgui.so
+      bin-name-windows: Release/cimgui.dll
+      bin-name-windows-normalized: cimgui.dll
+      bin-name-osx: cimgui.dylib
+      bin-name-osx-normalized: cimgui.dylib
+      bin-name-android: cimgui.so
+      bin-name-android-normalized: cimgui.so
+      android-api: 23
+
+  build-cimplot:
+    uses: JunaMeinhold/cmake-actions/.github/workflows/cmake.yml@v1.x.x
+    with:
+      lib-name: cimplot
+      repo: JunaMeinhold/cimplot
+      repo-tag: master
+      cmake-flags: -DIMGUI_WCHAR32=ON -DIMGUI_FREETYPE=ON
+      bin-name-linux: cimplot.so
+      bin-name-linux-normalized: cimplot.so
+      bin-name-windows: Release/cimplot.dll
+      bin-name-windows-normalized: cimplot.dll
+      bin-name-osx: cimplot.dylib
+      bin-name-osx-normalized: cimplot.dylib
+      bin-name-android: cimplot.so
+      bin-name-android-normalized: cimplot.so
+      android-api: 23
+      pre-configure-steps: "bash scripts/setup_addon_build.sh"
+      checkout-self: true
+
+  build-cimnodes:
+    uses: JunaMeinhold/cmake-actions/.github/workflows/cmake.yml@v1.x.x
+    with:
+      lib-name: cimnodes
+      repo: JunaMeinhold/cimnodes
+      repo-tag: master
+      cmake-flags: -DIMGUI_WCHAR32=ON -DIMGUI_FREETYPE=ON
+      bin-name-linux: cimnodes.so
+      bin-name-linux-normalized: cimnodes.so
+      bin-name-windows: Release/cimnodes.dll
+      bin-name-windows-normalized: cimnodes.dll
+      bin-name-osx: cimnodes.dylib
+      bin-name-osx-normalized: cimnodes.dylib
+      bin-name-android: cimnodes.so
+      bin-name-android-normalized: cimnodes.so
+      android-api: 23
+      pre-configure-steps: "bash scripts/setup_addon_build.sh"
+      checkout-self: true
+
+  build-cimguizmo:
+    uses: JunaMeinhold/cmake-actions/.github/workflows/cmake.yml@v1.x.x
+    with:
+      lib-name: cimguizmo
+      repo: JunaMeinhold/cimguizmo
+      repo-tag: master
+      cmake-flags: -DIMGUI_WCHAR32=ON -DIMGUI_FREETYPE=ON
+      bin-name-linux: cimguizmo.so
+      bin-name-linux-normalized: cimguizmo.so
+      bin-name-windows: Release/cimguizmo.dll
+      bin-name-windows-normalized: cimguizmo.dll
+      bin-name-osx: cimguizmo.dylib
+      bin-name-osx-normalized: cimguizmo.dylib
+      bin-name-android: cimguizmo.so
+      bin-name-android-normalized: cimguizmo.so
+      android-api: 23
+      pre-configure-steps: "bash scripts/setup_addon_build.sh"
+      checkout-self: true
+
+  create-pr:
+    needs: [build-cimgui, build-cimplot, build-cimnodes, build-cimguizmo]
+    uses: JunaMeinhold/cmake-actions/.github/workflows/create-pr.yml@v1.x.x
+    with:
+        lib-name: "ImGui"
+        lib-version: "v1.92.1"
+        pr-base-branch: "master"
+        pr-reviewers: JunaMeinhold
+        pr-branch: imgui-artifacts
+        pr-manifest-path: imgui

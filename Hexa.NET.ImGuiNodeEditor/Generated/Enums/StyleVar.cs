@@ -13,36 +13,150 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[Flags]
 	public enum StyleVar : int
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodePadding = unchecked(0),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeRounding = unchecked(1),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeBorderWidth = unchecked(2),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HoveredNodeBorderWidth = unchecked(3),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SelectedNodeBorderWidth = unchecked(4),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinRounding = unchecked(5),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinBorderWidth = unchecked(6),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		LinkStrength = unchecked(7),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SourceDirection = unchecked(8),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		TargetDirection = unchecked(9),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		ScrollDuration = unchecked(10),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		FlowMarkerDistance = unchecked(11),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		FlowSpeed = unchecked(12),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		FlowDuration = unchecked(13),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PivotAlignment = unchecked(14),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PivotSize = unchecked(15),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PivotScale = unchecked(16),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinCorners = unchecked(17),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinRadius = unchecked(18),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinArrowSize = unchecked(19),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinArrowWidth = unchecked(20),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		GroupRounding = unchecked(21),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		GroupBorderWidth = unchecked(22),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HighlightConnectedLinks = unchecked(23),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SnapLinkToPinDir = unchecked(24),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HoveredNodeBorderOffset = unchecked(25),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SelectedNodeBorderOffset = unchecked(26),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Count = unchecked(27),
 	}
 }

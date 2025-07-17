@@ -15,6 +15,9 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif

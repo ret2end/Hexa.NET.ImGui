@@ -13,6 +13,9 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[Flags]
 	public enum CanvasSizeMode : int
 	{

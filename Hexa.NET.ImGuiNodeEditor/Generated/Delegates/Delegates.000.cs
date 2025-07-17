@@ -17,110 +17,176 @@ using System.Numerics;
 namespace Hexa.NET.ImGuiNodeEditor
 {
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void BeginSaveSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void BeginSaveSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void EndSaveSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void EndSaveSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte SaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate byte SaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte SaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate byte SaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong LoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate nuint LoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong LoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate nuint LoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte SaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate byte SaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte SaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate byte SaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong LoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate nuint LoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong LoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate nuint LoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte ConfigSaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate byte ConfigSaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte ConfigSaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate byte ConfigSaveSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong ConfigLoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate nuint ConfigLoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong ConfigLoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate nuint ConfigLoadSettings([NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte ConfigSaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate byte ConfigSaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] byte* data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate byte ConfigSaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] ulong size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate byte ConfigSaveNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "const char*")] nint data, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "size_t")] nuint size, [NativeName(NativeNameType.Param, "reason")] [NativeName(NativeNameType.Type, "SaveReasonFlags")] SaveReasonFlags reason, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong ConfigLoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
+	public unsafe delegate nuint ConfigLoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] byte* data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate ulong ConfigLoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
+	public unsafe delegate nuint ConfigLoadNodeSettings([NativeName(NativeNameType.Param, "nodeId")] [NativeName(NativeNameType.Type, "NodeId")] NodeId nodeId, [NativeName(NativeNameType.Param, "data")] [NativeName(NativeNameType.Type, "char*")] nint data, [NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void ConfigSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] void* userPointer);
 
 	#else
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void ConfigSession([NativeName(NativeNameType.Param, "userPointer")] [NativeName(NativeNameType.Type, "void*")] nint userPointer);
 

@@ -16,40 +16,150 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct Style
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector4 NodePadding;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float NodeRounding;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float NodeBorderWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float HoveredNodeBorderWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float HoverNodeBorderOffset;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float SelectedNodeBorderWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float SelectedNodeBorderOffset;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinRounding;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinBorderWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float LinkStrength;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector2 SourceDirection;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector2 TargetDirection;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float ScrollDuration;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float FlowMarkerDistance;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float FlowSpeed;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float FlowDuration;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector2 PivotAlignment;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector2 PivotSize;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector2 PivotScale;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinCorners;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinRadius;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinArrowSize;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float PinArrowWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float GroupRounding;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float GroupBorderWidth;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float HighlightConnectedLinks;
+
 		/// <summary>
 		/// when true link will start on the line defined by pin direction<br/>
 		/// </summary>
 		public float SnapLinkToPinDir;
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public Vector4 Colors_0;
 		public Vector4 Colors_1;
 		public Vector4 Colors_2;
@@ -70,6 +180,10 @@ namespace Hexa.NET.ImGuiNodeEditor
 		public Vector4 Colors_17;
 		public Vector4 Colors_18;
 
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe Style(Vector4 nodePadding = default, float nodeRounding = default, float nodeBorderWidth = default, float hoveredNodeBorderWidth = default, float hoverNodeBorderOffset = default, float selectedNodeBorderWidth = default, float selectedNodeBorderOffset = default, float pinRounding = default, float pinBorderWidth = default, float linkStrength = default, Vector2 sourceDirection = default, Vector2 targetDirection = default, float scrollDuration = default, float flowMarkerDistance = default, float flowSpeed = default, float flowDuration = default, Vector2 pivotAlignment = default, Vector2 pivotSize = default, Vector2 pivotScale = default, float pinCorners = default, float pinRadius = default, float pinArrowSize = default, float pinArrowWidth = default, float groupRounding = default, float groupBorderWidth = default, float highlightConnectedLinks = default, float snapLinkToPinDir = default, Vector4* colors = default)
 		{
 			NodePadding = nodePadding;
@@ -123,6 +237,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe Style(Vector4 nodePadding = default, float nodeRounding = default, float nodeBorderWidth = default, float hoveredNodeBorderWidth = default, float hoverNodeBorderOffset = default, float selectedNodeBorderWidth = default, float selectedNodeBorderOffset = default, float pinRounding = default, float pinBorderWidth = default, float linkStrength = default, Vector2 sourceDirection = default, Vector2 targetDirection = default, float scrollDuration = default, float flowMarkerDistance = default, float flowSpeed = default, float flowDuration = default, Vector2 pivotAlignment = default, Vector2 pivotSize = default, Vector2 pivotScale = default, float pinCorners = default, float pinRadius = default, float pinArrowSize = default, float pinArrowWidth = default, float groupRounding = default, float groupBorderWidth = default, float highlightConnectedLinks = default, float snapLinkToPinDir = default, Span<Vector4> colors = default)
 		{
 			NodePadding = nodePadding;
@@ -177,6 +294,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 		}
 
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe Span<Vector4> Colors
 		
 		{

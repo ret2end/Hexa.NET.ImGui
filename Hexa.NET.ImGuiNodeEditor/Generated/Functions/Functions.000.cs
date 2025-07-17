@@ -49,6 +49,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static EditorContext* GetCurrentEditorNative()
 		{
@@ -59,12 +62,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static EditorContextPtr GetCurrentEditor()
 		{
 			EditorContextPtr ret = GetCurrentEditorNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static EditorContext* CreateEditorNative(Config* config)
 		{
@@ -75,12 +84,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static EditorContextPtr CreateEditor(ConfigPtr config)
 		{
 			EditorContextPtr ret = CreateEditorNative(config);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static EditorContextPtr CreateEditor(ref Config config)
 		{
 			fixed (Config* pconfig = &config)
@@ -90,6 +105,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void DestroyEditorNative(EditorContext* ctx)
 		{
@@ -100,11 +118,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void DestroyEditor(EditorContextPtr ctx)
 		{
 			DestroyEditorNative(ctx);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void DestroyEditor(ref EditorContext ctx)
 		{
 			fixed (EditorContext* pctx = &ctx)
@@ -113,6 +137,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Config* GetConfigNative(EditorContext* ctx)
 		{
@@ -123,12 +150,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static ConfigPtr GetConfig(EditorContextPtr ctx)
 		{
 			ConfigPtr ret = GetConfigNative(ctx);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static ConfigPtr GetConfig(ref EditorContext ctx)
 		{
 			fixed (EditorContext* pctx = &ctx)
@@ -138,6 +171,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Style* GetStyleNative()
 		{
@@ -148,12 +184,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Style* GetStyle()
 		{
 			Style* ret = GetStyleNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte* GetStyleColorNameNative(StyleColor colorIndex)
 		{
@@ -164,18 +206,27 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static byte* GetStyleColorName(StyleColor colorIndex)
 		{
 			byte* ret = GetStyleColorNameNative(colorIndex);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static string GetStyleColorNameS(StyleColor colorIndex)
 		{
 			string ret = Utils.DecodeStringUTF8(GetStyleColorNameNative(colorIndex));
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PushStyleColorNative(StyleColor colorIndex, Vector4* color)
 		{
@@ -186,11 +237,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PushStyleColor(StyleColor colorIndex, Vector4* color)
 		{
 			PushStyleColorNative(colorIndex, color);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PushStyleColor(StyleColor colorIndex, ref Vector4 color)
 		{
 			fixed (Vector4* pcolor = &color)
@@ -199,6 +256,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PopStyleColorNative(int count)
 		{
@@ -209,6 +269,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PopStyleColor(int count)
 		{
 			PopStyleColorNative(count);
@@ -291,6 +354,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PopStyleVarNative(int count)
 		{
@@ -301,11 +367,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PopStyleVar(int count)
 		{
 			PopStyleVarNative(count);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void BeginNative(byte* id, Vector2* size)
 		{
@@ -316,11 +388,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(byte* id, Vector2* size)
 		{
 			BeginNative(id, size);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(ref byte id, Vector2* size)
 		{
 			fixed (byte* pid = &id)
@@ -329,6 +407,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(ReadOnlySpan<byte> id, Vector2* size)
 		{
 			fixed (byte* pid = id)
@@ -337,6 +418,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(string id, Vector2* size)
 		{
 			byte* pStr0 = null;
@@ -363,6 +447,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(byte* id, ref Vector2 size)
 		{
 			fixed (Vector2* psize = &size)
@@ -371,6 +458,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(ref byte id, ref Vector2 size)
 		{
 			fixed (byte* pid = &id)
@@ -382,6 +472,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(ReadOnlySpan<byte> id, ref Vector2 size)
 		{
 			fixed (byte* pid = id)
@@ -393,6 +486,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Begin(string id, ref Vector2 size)
 		{
 			byte* pStr0 = null;
@@ -422,6 +518,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndNative()
 		{
@@ -432,11 +531,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void End()
 		{
 			EndNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void BeginNodeNative(NodeId id)
 		{
@@ -447,11 +552,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void BeginNode(NodeId id)
 		{
 			BeginNodeNative(id);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void BeginPinNative(PinId id, PinKind kind)
 		{
@@ -462,11 +573,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void BeginPin(PinId id, PinKind kind)
 		{
 			BeginPinNative(id, kind);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PinRectNative(Vector2* a, Vector2* b)
 		{
@@ -477,11 +594,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinRect(Vector2* a, Vector2* b)
 		{
 			PinRectNative(a, b);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinRect(ref Vector2 a, Vector2* b)
 		{
 			fixed (Vector2* pa = &a)
@@ -490,6 +613,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinRect(Vector2* a, ref Vector2 b)
 		{
 			fixed (Vector2* pb = &b)
@@ -498,6 +624,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinRect(ref Vector2 a, ref Vector2 b)
 		{
 			fixed (Vector2* pa = &a)
@@ -509,6 +638,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PinPivotRectNative(Vector2* a, Vector2* b)
 		{
@@ -519,11 +651,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotRect(Vector2* a, Vector2* b)
 		{
 			PinPivotRectNative(a, b);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotRect(ref Vector2 a, Vector2* b)
 		{
 			fixed (Vector2* pa = &a)
@@ -532,6 +670,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotRect(Vector2* a, ref Vector2 b)
 		{
 			fixed (Vector2* pb = &b)
@@ -540,6 +681,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotRect(ref Vector2 a, ref Vector2 b)
 		{
 			fixed (Vector2* pa = &a)
@@ -551,6 +695,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PinPivotSizeNative(Vector2* size)
 		{
@@ -561,11 +708,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotSize(Vector2* size)
 		{
 			PinPivotSizeNative(size);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotSize(ref Vector2 size)
 		{
 			fixed (Vector2* psize = &size)
@@ -574,6 +727,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PinPivotScaleNative(Vector2* scale)
 		{
@@ -584,11 +740,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotScale(Vector2* scale)
 		{
 			PinPivotScaleNative(scale);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotScale(ref Vector2 scale)
 		{
 			fixed (Vector2* pscale = &scale)
@@ -597,6 +759,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void PinPivotAlignmentNative(Vector2* alignment)
 		{
@@ -607,11 +772,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotAlignment(Vector2* alignment)
 		{
 			PinPivotAlignmentNative(alignment);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void PinPivotAlignment(ref Vector2 alignment)
 		{
 			fixed (Vector2* palignment = &alignment)
@@ -620,6 +791,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndPinNative()
 		{
@@ -630,11 +804,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndPin()
 		{
 			EndPinNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void GroupNative(Vector2* size)
 		{
@@ -645,11 +825,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Group(Vector2* size)
 		{
 			GroupNative(size);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Group(ref Vector2 size)
 		{
 			fixed (Vector2* psize = &size)
@@ -658,6 +844,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndNodeNative()
 		{
@@ -668,11 +857,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndNode()
 		{
 			EndNodeNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte BeginGroupHintNative(NodeId nodeId)
 		{
@@ -683,12 +878,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool BeginGroupHint(NodeId nodeId)
 		{
 			byte ret = BeginGroupHintNative(nodeId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 GetGroupMinNative()
 		{
@@ -699,12 +900,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 GetGroupMin()
 		{
 			Vector2 ret = GetGroupMinNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 GetGroupMaxNative()
 		{
@@ -715,12 +922,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 GetGroupMax()
 		{
 			Vector2 ret = GetGroupMaxNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static ImDrawList* GetHintForegroundDrawListNative()
 		{
@@ -731,12 +944,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static ImDrawList* GetHintForegroundDrawList()
 		{
 			ImDrawList* ret = GetHintForegroundDrawListNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static ImDrawList* GetHintBackgroundDrawListNative()
 		{
@@ -747,12 +966,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static ImDrawList* GetHintBackgroundDrawList()
 		{
 			ImDrawList* ret = GetHintBackgroundDrawListNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndGroupHintNative()
 		{
@@ -763,6 +988,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndGroupHint()
 		{
 			EndGroupHintNative();
@@ -790,6 +1018,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte LinkNative(LinkId id, PinId startPinId, PinId endPinId, Vector4* color, float thickness)
 		{
@@ -800,12 +1031,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool Link(LinkId id, PinId startPinId, PinId endPinId, Vector4* color, float thickness)
 		{
 			byte ret = LinkNative(id, startPinId, endPinId, color, thickness);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool Link(LinkId id, PinId startPinId, PinId endPinId, ref Vector4 color, float thickness)
 		{
 			fixed (Vector4* pcolor = &color)
@@ -815,6 +1052,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void FlowNative(LinkId linkId, FlowDirection direction)
 		{
@@ -825,11 +1065,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Flow(LinkId linkId, FlowDirection direction)
 		{
 			FlowNative(linkId, direction);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte BeginCreateNative(Vector4* color, float thickness)
 		{
@@ -840,12 +1086,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool BeginCreate(Vector4* color, float thickness)
 		{
 			byte ret = BeginCreateNative(color, thickness);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool BeginCreate(ref Vector4 color, float thickness)
 		{
 			fixed (Vector4* pcolor = &color)
@@ -1103,6 +1355,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndCreateNative()
 		{
@@ -1113,11 +1368,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndCreate()
 		{
 			EndCreateNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte BeginDeleteNative()
 		{
@@ -1128,12 +1389,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool BeginDelete()
 		{
 			byte ret = BeginDeleteNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte QueryDeletedLinkNative(LinkId* linkId, PinId* startId, PinId* endId)
 		{
@@ -1144,12 +1411,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(LinkId* linkId, PinId* startId, PinId* endId)
 		{
 			byte ret = QueryDeletedLinkNative(linkId, startId, endId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(ref LinkId linkId, PinId* startId, PinId* endId)
 		{
 			fixed (LinkId* plinkId = &linkId)
@@ -1159,6 +1432,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(LinkId* linkId, ref PinId startId, PinId* endId)
 		{
 			fixed (PinId* pstartId = &startId)
@@ -1168,6 +1444,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(ref LinkId linkId, ref PinId startId, PinId* endId)
 		{
 			fixed (LinkId* plinkId = &linkId)
@@ -1180,6 +1459,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(LinkId* linkId, PinId* startId, ref PinId endId)
 		{
 			fixed (PinId* pendId = &endId)
@@ -1189,6 +1471,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(ref LinkId linkId, PinId* startId, ref PinId endId)
 		{
 			fixed (LinkId* plinkId = &linkId)
@@ -1201,6 +1486,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(LinkId* linkId, ref PinId startId, ref PinId endId)
 		{
 			fixed (PinId* pstartId = &startId)
@@ -1213,6 +1501,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedLink(ref LinkId linkId, ref PinId startId, ref PinId endId)
 		{
 			fixed (LinkId* plinkId = &linkId)
@@ -1228,6 +1519,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte QueryDeletedNodeNative(NodeId* nodeId)
 		{
@@ -1238,12 +1532,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedNode(NodeId* nodeId)
 		{
 			byte ret = QueryDeletedNodeNative(nodeId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool QueryDeletedNode(ref NodeId nodeId)
 		{
 			fixed (NodeId* pnodeId = &nodeId)
@@ -1253,6 +1553,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptDeletedItemNative(byte deleteDependencies)
 		{
@@ -1263,12 +1566,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptDeletedItem(bool deleteDependencies)
 		{
 			byte ret = AcceptDeletedItemNative(deleteDependencies ? (byte)1 : (byte)0);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void RejectDeletedItemNative()
 		{
@@ -1279,11 +1588,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void RejectDeletedItem()
 		{
 			RejectDeletedItemNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndDeleteNative()
 		{
@@ -1294,11 +1609,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndDelete()
 		{
 			EndDeleteNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SetNodePositionNative(NodeId nodeId, Vector2* editorPosition)
 		{
@@ -1309,11 +1630,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetNodePosition(NodeId nodeId, Vector2* editorPosition)
 		{
 			SetNodePositionNative(nodeId, editorPosition);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetNodePosition(NodeId nodeId, ref Vector2 editorPosition)
 		{
 			fixed (Vector2* peditorPosition = &editorPosition)
@@ -1322,6 +1649,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SetGroupSizeNative(NodeId nodeId, Vector2* size)
 		{
@@ -1332,11 +1662,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetGroupSize(NodeId nodeId, Vector2* size)
 		{
 			SetGroupSizeNative(nodeId, size);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetGroupSize(NodeId nodeId, ref Vector2 size)
 		{
 			fixed (Vector2* psize = &size)
@@ -1345,6 +1681,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 GetNodePositionNative(NodeId nodeId)
 		{
@@ -1355,12 +1694,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 GetNodePosition(NodeId nodeId)
 		{
 			Vector2 ret = GetNodePositionNative(nodeId);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 GetNodeSizeNative(NodeId nodeId)
 		{
@@ -1371,12 +1716,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 GetNodeSize(NodeId nodeId)
 		{
 			Vector2 ret = GetNodeSizeNative(nodeId);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void CenterNodeOnScreenNative(NodeId nodeId)
 		{
@@ -1387,11 +1738,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void CenterNodeOnScreen(NodeId nodeId)
 		{
 			CenterNodeOnScreenNative(nodeId);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SetNodeZPositionNative(NodeId nodeId, float z)
 		{
@@ -1402,11 +1759,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetNodeZPosition(NodeId nodeId, float z)
 		{
 			SetNodeZPositionNative(nodeId, z);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static float GetNodeZPositionNative(NodeId nodeId)
 		{
@@ -1417,12 +1780,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static float GetNodeZPosition(NodeId nodeId)
 		{
 			float ret = GetNodeZPositionNative(nodeId);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void RestoreNodeStateNative(NodeId nodeId)
 		{
@@ -1433,11 +1802,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void RestoreNodeState(NodeId nodeId)
 		{
 			RestoreNodeStateNative(nodeId);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SuspendNative()
 		{
@@ -1448,11 +1823,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Suspend()
 		{
 			SuspendNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void ResumeNative()
 		{
@@ -1463,11 +1844,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void Resume()
 		{
 			ResumeNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsSuspendedNative()
 		{
@@ -1478,12 +1865,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsSuspended()
 		{
 			byte ret = IsSuspendedNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsActiveNative()
 		{
@@ -1494,12 +1887,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsActive()
 		{
 			byte ret = IsActiveNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte HasSelectionChangedNative()
 		{
@@ -1510,12 +1909,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool HasSelectionChanged()
 		{
 			byte ret = HasSelectionChangedNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetSelectedObjectCountNative()
 		{
@@ -1526,12 +1931,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetSelectedObjectCount()
 		{
 			int ret = GetSelectedObjectCountNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetSelectedNodesNative(NodeId* nodes, int size)
 		{
@@ -1542,12 +1953,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetSelectedNodes(NodeId* nodes, int size)
 		{
 			int ret = GetSelectedNodesNative(nodes, size);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetSelectedNodes(ref NodeId nodes, int size)
 		{
 			fixed (NodeId* pnodes = &nodes)
@@ -1557,6 +1974,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetSelectedLinksNative(LinkId* links, int size)
 		{
@@ -1567,12 +1987,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetSelectedLinks(LinkId* links, int size)
 		{
 			int ret = GetSelectedLinksNative(links, size);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetSelectedLinks(ref LinkId links, int size)
 		{
 			fixed (LinkId* plinks = &links)
@@ -1582,6 +2008,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsNodeSelectedNative(NodeId nodeId)
 		{
@@ -1592,12 +2021,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsNodeSelected(NodeId nodeId)
 		{
 			byte ret = IsNodeSelectedNative(nodeId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsLinkSelectedNative(LinkId linkId)
 		{
@@ -1608,12 +2043,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsLinkSelected(LinkId linkId)
 		{
 			byte ret = IsLinkSelectedNative(linkId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void ClearSelectionNative()
 		{
@@ -1624,11 +2065,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void ClearSelection()
 		{
 			ClearSelectionNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SelectNodeNative(NodeId nodeId, byte append)
 		{
@@ -1639,11 +2086,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SelectNode(NodeId nodeId, bool append)
 		{
 			SelectNodeNative(nodeId, append ? (byte)1 : (byte)0);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SelectLinkNative(LinkId linkId, byte append)
 		{
@@ -1654,11 +2107,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SelectLink(LinkId linkId, bool append)
 		{
 			SelectLinkNative(linkId, append ? (byte)1 : (byte)0);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void DeselectNodeNative(NodeId nodeId)
 		{
@@ -1669,11 +2128,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void DeselectNode(NodeId nodeId)
 		{
 			DeselectNodeNative(nodeId);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void DeselectLinkNative(LinkId linkId)
 		{
@@ -1684,11 +2149,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void DeselectLink(LinkId linkId)
 		{
 			DeselectLinkNative(linkId);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte DeleteNodeNative(NodeId nodeId)
 		{
@@ -1699,12 +2170,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool DeleteNode(NodeId nodeId)
 		{
 			byte ret = DeleteNodeNative(nodeId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte DeleteLinkNative(LinkId linkId)
 		{
@@ -1715,6 +2192,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool DeleteLink(LinkId linkId)
 		{
 			byte ret = DeleteLinkNative(linkId);
@@ -1801,6 +2281,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void NavigateToContentNative(float duration)
 		{
@@ -1811,11 +2294,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void NavigateToContent(float duration)
 		{
 			NavigateToContentNative(duration);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void NavigateToSelectionNative(byte zoomIn, float duration)
 		{
@@ -1826,11 +2315,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void NavigateToSelection(bool zoomIn, float duration)
 		{
 			NavigateToSelectionNative(zoomIn ? (byte)1 : (byte)0, duration);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte ShowNodeContextMenuNative(NodeId* nodeId)
 		{
@@ -1841,12 +2336,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowNodeContextMenu(NodeId* nodeId)
 		{
 			byte ret = ShowNodeContextMenuNative(nodeId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowNodeContextMenu(ref NodeId nodeId)
 		{
 			fixed (NodeId* pnodeId = &nodeId)
@@ -1856,6 +2357,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte ShowPinContextMenuNative(PinId* pinId)
 		{
@@ -1866,12 +2370,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowPinContextMenu(PinId* pinId)
 		{
 			byte ret = ShowPinContextMenuNative(pinId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowPinContextMenu(ref PinId pinId)
 		{
 			fixed (PinId* ppinId = &pinId)
@@ -1881,6 +2391,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte ShowLinkContextMenuNative(LinkId* linkId)
 		{
@@ -1891,12 +2404,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowLinkContextMenu(LinkId* linkId)
 		{
 			byte ret = ShowLinkContextMenuNative(linkId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowLinkContextMenu(ref LinkId linkId)
 		{
 			fixed (LinkId* plinkId = &linkId)
@@ -1906,6 +2425,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte ShowBackgroundContextMenuNative()
 		{
@@ -1916,12 +2438,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool ShowBackgroundContextMenu()
 		{
 			byte ret = ShowBackgroundContextMenuNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EnableShortcutsNative(byte enable)
 		{
@@ -1932,11 +2460,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EnableShortcuts(bool enable)
 		{
 			EnableShortcutsNative(enable ? (byte)1 : (byte)0);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AreShortcutsEnabledNative()
 		{
@@ -1947,12 +2481,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AreShortcutsEnabled()
 		{
 			byte ret = AreShortcutsEnabledNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte BeginShortcutNative()
 		{
@@ -1963,12 +2503,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool BeginShortcut()
 		{
 			byte ret = BeginShortcutNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptCutNative()
 		{
@@ -1979,12 +2525,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptCut()
 		{
 			byte ret = AcceptCutNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptCopyNative()
 		{
@@ -1995,12 +2547,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptCopy()
 		{
 			byte ret = AcceptCopyNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptPasteNative()
 		{
@@ -2011,12 +2569,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptPaste()
 		{
 			byte ret = AcceptPasteNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptDuplicateNative()
 		{
@@ -2027,12 +2591,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptDuplicate()
 		{
 			byte ret = AcceptDuplicateNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte AcceptCreateNodeNative()
 		{
@@ -2043,12 +2613,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool AcceptCreateNode()
 		{
 			byte ret = AcceptCreateNodeNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetActionContextSizeNative()
 		{
@@ -2059,12 +2635,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetActionContextSize()
 		{
 			int ret = GetActionContextSizeNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetActionContextNodesNative(NodeId* nodes, int size)
 		{
@@ -2075,12 +2657,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetActionContextNodes(NodeId* nodes, int size)
 		{
 			int ret = GetActionContextNodesNative(nodes, size);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetActionContextNodes(ref NodeId nodes, int size)
 		{
 			fixed (NodeId* pnodes = &nodes)
@@ -2090,6 +2678,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetActionContextLinksNative(LinkId* links, int size)
 		{
@@ -2100,12 +2691,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetActionContextLinks(LinkId* links, int size)
 		{
 			int ret = GetActionContextLinksNative(links, size);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetActionContextLinks(ref LinkId links, int size)
 		{
 			fixed (LinkId* plinks = &links)
@@ -2115,6 +2712,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void EndShortcutNative()
 		{
@@ -2125,11 +2725,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void EndShortcut()
 		{
 			EndShortcutNative();
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static float GetCurrentZoomNative()
 		{
@@ -2140,12 +2746,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static float GetCurrentZoom()
 		{
 			float ret = GetCurrentZoomNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static NodeId GetHoveredNodeNative()
 		{
@@ -2156,12 +2768,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static NodeId GetHoveredNode()
 		{
 			NodeId ret = GetHoveredNodeNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static PinId GetHoveredPinNative()
 		{
@@ -2172,12 +2790,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static PinId GetHoveredPin()
 		{
 			PinId ret = GetHoveredPinNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static LinkId GetHoveredLinkNative()
 		{
@@ -2188,12 +2812,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static LinkId GetHoveredLink()
 		{
 			LinkId ret = GetHoveredLinkNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static NodeId GetDoubleClickedNodeNative()
 		{
@@ -2204,12 +2834,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static NodeId GetDoubleClickedNode()
 		{
 			NodeId ret = GetDoubleClickedNodeNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static PinId GetDoubleClickedPinNative()
 		{
@@ -2220,12 +2856,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static PinId GetDoubleClickedPin()
 		{
 			PinId ret = GetDoubleClickedPinNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static LinkId GetDoubleClickedLinkNative()
 		{
@@ -2236,12 +2878,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static LinkId GetDoubleClickedLink()
 		{
 			LinkId ret = GetDoubleClickedLinkNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsBackgroundClickedNative()
 		{
@@ -2252,12 +2900,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsBackgroundClicked()
 		{
 			byte ret = IsBackgroundClickedNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte IsBackgroundDoubleClickedNative()
 		{
@@ -2268,12 +2922,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool IsBackgroundDoubleClicked()
 		{
 			byte ret = IsBackgroundDoubleClickedNative();
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetBackgroundClickButtonIndexNative()
 		{
@@ -2284,12 +2944,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetBackgroundClickButtonIndex()
 		{
 			int ret = GetBackgroundClickButtonIndexNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetBackgroundDoubleClickButtonIndexNative()
 		{
@@ -2300,12 +2966,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetBackgroundDoubleClickButtonIndex()
 		{
 			int ret = GetBackgroundDoubleClickButtonIndexNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte GetLinkPinsNative(LinkId linkId, PinId* startPinId, PinId* endPinId)
 		{
@@ -2316,12 +2988,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool GetLinkPins(LinkId linkId, PinId* startPinId, PinId* endPinId)
 		{
 			byte ret = GetLinkPinsNative(linkId, startPinId, endPinId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool GetLinkPins(LinkId linkId, ref PinId startPinId, PinId* endPinId)
 		{
 			fixed (PinId* pstartPinId = &startPinId)
@@ -2331,6 +3009,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool GetLinkPins(LinkId linkId, PinId* startPinId, ref PinId endPinId)
 		{
 			fixed (PinId* pendPinId = &endPinId)
@@ -2340,6 +3021,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool GetLinkPins(LinkId linkId, ref PinId startPinId, ref PinId endPinId)
 		{
 			fixed (PinId* pstartPinId = &startPinId)
@@ -2352,6 +3036,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static byte PinHadAnyLinksNative(PinId pinId)
 		{
@@ -2362,12 +3049,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static bool PinHadAnyLinks(PinId pinId)
 		{
 			byte ret = PinHadAnyLinksNative(pinId);
 			return ret != 0;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 GetScreenSizeNative()
 		{
@@ -2378,12 +3071,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 GetScreenSize()
 		{
 			Vector2 ret = GetScreenSizeNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 ScreenToCanvasNative(Vector2* pos)
 		{
@@ -2394,12 +3093,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 ScreenToCanvas(Vector2* pos)
 		{
 			Vector2 ret = ScreenToCanvasNative(pos);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 ScreenToCanvas(ref Vector2 pos)
 		{
 			fixed (Vector2* ppos = &pos)
@@ -2409,6 +3114,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static Vector2 CanvasToScreenNative(Vector2* pos)
 		{
@@ -2419,12 +3127,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 CanvasToScreen(Vector2* pos)
 		{
 			Vector2 ret = CanvasToScreenNative(pos);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static Vector2 CanvasToScreen(ref Vector2 pos)
 		{
 			fixed (Vector2* ppos = &pos)
@@ -2434,6 +3148,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetNodeCountNative()
 		{
@@ -2444,12 +3161,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetNodeCount()
 		{
 			int ret = GetNodeCountNative();
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int GetOrderedNodeIdsNative(NodeId* nodes, int size)
 		{
@@ -2460,12 +3183,18 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetOrderedNodeIds(NodeId* nodes, int size)
 		{
 			int ret = GetOrderedNodeIdsNative(nodes, size);
 			return ret;
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static int GetOrderedNodeIds(ref NodeId nodes, int size)
 		{
 			fixed (NodeId* pnodes = &nodes)
@@ -2475,6 +3204,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 			}
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SetImGuiContextNative(ImGuiContext* ctx)
 		{
@@ -2485,11 +3217,17 @@ namespace Hexa.NET.ImGuiNodeEditor
 			#endif
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetImGuiContext(ImGuiContext* ctx)
 		{
 			SetImGuiContextNative(ctx);
 		}
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public static void SetImGuiContext(ref ImGuiContext ctx)
 		{
 			fixed (ImGuiContext* pctx = &ctx)

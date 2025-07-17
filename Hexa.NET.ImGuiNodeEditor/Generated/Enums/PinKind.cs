@@ -19,7 +19,14 @@ namespace Hexa.NET.ImGuiNodeEditor
 	[Flags]
 	public enum PinKind : int
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Input = unchecked(0),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Output = unchecked(1),
 	}
 }

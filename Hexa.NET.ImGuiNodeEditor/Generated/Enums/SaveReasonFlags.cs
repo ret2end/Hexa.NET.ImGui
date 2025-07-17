@@ -19,13 +19,44 @@ namespace Hexa.NET.ImGuiNodeEditor
 	[Flags]
 	public enum SaveReasonFlags : uint
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		None = unchecked((int)0x00000000),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Navigation = unchecked((int)0x00000001),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Position = unchecked((int)0x00000002),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Size = unchecked((int)0x00000004),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Selection = unchecked((int)0x00000008),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		AddNode = unchecked((int)0x00000010),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		RemoveNode = unchecked((int)0x00000020),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		User = unchecked((int)0x00000040),
 	}
 }

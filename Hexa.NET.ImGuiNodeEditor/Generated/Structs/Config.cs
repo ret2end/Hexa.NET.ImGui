@@ -16,19 +16,56 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct Config
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe byte* SettingsFile;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* BeginSaveSession;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* EndSaveSession;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* SaveSettings;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* LoadSettings;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* SaveNodeSettings;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* LoadNodeSettings;
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe void* UserPointer;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public ImVector<float> CustomZoomLevels;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public CanvasSizeMode CanvasSizeMode;
+
 		/// <summary>
 		/// Mouse button index drag action will react to (0-left, 1-right, 2-middle)<br/>
 		/// </summary>
@@ -49,9 +86,20 @@ namespace Hexa.NET.ImGuiNodeEditor
 		/// </summary>
 		public int ContextMenuButtonIndex;
 
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public byte EnableSmoothZoom;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public float SmoothZoomPower;
 
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public unsafe Config(byte* settingsFile = default, ConfigSession beginSaveSession = default, ConfigSession endSaveSession = default, ConfigSaveSettings saveSettings = default, ConfigLoadSettings loadSettings = default, ConfigSaveNodeSettings saveNodeSettings = default, ConfigLoadNodeSettings loadNodeSettings = default, void* userPointer = default, ImVector<float> customZoomLevels = default, CanvasSizeMode canvasSizeMode = default, int dragButtonIndex = default, int selectButtonIndex = default, int navigateButtonIndex = default, int contextMenuButtonIndex = default, bool enableSmoothZoom = default, float smoothZoomPower = default)
 		{
 			SettingsFile = settingsFile;
@@ -75,6 +123,9 @@ namespace Hexa.NET.ImGuiNodeEditor
 
 	}
 
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif
@@ -113,15 +164,45 @@ namespace Hexa.NET.ImGuiNodeEditor
 		#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ConfigPtr [0x{0}]", ((nuint)Handle).ToString("X"));
 		#endif
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public byte* SettingsFile { get => Handle->SettingsFile; set => Handle->SettingsFile = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* BeginSaveSession { get => Handle->BeginSaveSession; set => Handle->BeginSaveSession = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* EndSaveSession { get => Handle->EndSaveSession; set => Handle->EndSaveSession = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* SaveSettings { get => Handle->SaveSettings; set => Handle->SaveSettings = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* LoadSettings { get => Handle->LoadSettings; set => Handle->LoadSettings = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* SaveNodeSettings { get => Handle->SaveNodeSettings; set => Handle->SaveNodeSettings = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* LoadNodeSettings { get => Handle->LoadNodeSettings; set => Handle->LoadNodeSettings = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public void* UserPointer { get => Handle->UserPointer; set => Handle->UserPointer = value; }
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public ref ImVector<float> CustomZoomLevels => ref Unsafe.AsRef<ImVector<float>>(&Handle->CustomZoomLevels);
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public ref CanvasSizeMode CanvasSizeMode => ref Unsafe.AsRef<CanvasSizeMode>(&Handle->CanvasSizeMode);
 		/// <summary>
 		/// Mouse button index drag action will react to (0-left, 1-right, 2-middle)<br/>
@@ -139,7 +220,13 @@ namespace Hexa.NET.ImGuiNodeEditor
 		/// Mouse button index context menu action will react to (0-left, 1-right, 2-middle)<br/>
 		/// </summary>
 		public ref int ContextMenuButtonIndex => ref Unsafe.AsRef<int>(&Handle->ContextMenuButtonIndex);
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public ref bool EnableSmoothZoom => ref Unsafe.AsRef<bool>(&Handle->EnableSmoothZoom);
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		public ref float SmoothZoomPower => ref Unsafe.AsRef<float>(&Handle->SmoothZoomPower);
 	}
 

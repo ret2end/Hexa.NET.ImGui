@@ -13,10 +13,20 @@ using System.Numerics;
 
 namespace Hexa.NET.ImGuiNodeEditor
 {
+	/// <summary>
+	/// To be documented.
+	/// </summary>
 	[Flags]
 	public enum FlowDirection : int
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Forward = unchecked(0),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Backward = unchecked(1),
 	}
 }

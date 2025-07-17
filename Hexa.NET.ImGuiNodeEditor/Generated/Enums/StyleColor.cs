@@ -19,25 +19,104 @@ namespace Hexa.NET.ImGuiNodeEditor
 	[Flags]
 	public enum StyleColor : int
 	{
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Bg = unchecked(0),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Grid = unchecked(1),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeBg = unchecked(2),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeBorder = unchecked(3),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HovNodeBorder = unchecked(4),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SelNodeBorder = unchecked(5),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeSelRect = unchecked(6),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		NodeSelRectBorder = unchecked(7),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HovLinkBorder = unchecked(8),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		SelLinkBorder = unchecked(9),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		HighlightLinkBorder = unchecked(10),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		LinkSelRect = unchecked(11),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		LinkSelRectBorder = unchecked(12),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinRect = unchecked(13),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		PinRectBorder = unchecked(14),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Flow = unchecked(15),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		FlowMarker = unchecked(16),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		GroupBg = unchecked(17),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		GroupBorder = unchecked(18),
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
 		Count = unchecked(19),
 	}
 }

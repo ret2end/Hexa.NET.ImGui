@@ -5,6 +5,7 @@
   "Namespace": "Hexa.NET.ImGuiNodeEditor",
   "ApiName": "ImGuiNodeEditor",
   "LibName": "ImGuiNodeEditor",
+  "SystemIncludeFolders": [ "C:\\dev\\imgui" ],
   "FunctionMappings": [
     {
       "ExportedName": "PushStyleVar_Float",
@@ -55,5 +56,5 @@
       "Defaults": {},
       "CustomVariations": []
     }
-  ],
+  ]
 }

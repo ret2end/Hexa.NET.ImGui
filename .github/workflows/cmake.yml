@@ -79,8 +79,27 @@ jobs:
       pre-configure-steps: "bash scripts/setup_addon_build.sh"
       checkout-self: true
 
+  build-imgui-node-editor:
+    uses: JunaMeinhold/cmake-actions/.github/workflows/cmake.yml@v1.x.x
+    with:
+      lib-name: cimguinodeeditor
+      repo: ret2end/imgui-node-editor
+      repo-tag: hexa-integration
+      cmake-flags: -DIMGUI_WCHAR32=ON -DIMGUI_FREETYPE=ON
+      bin-name-linux: cimguinodeeditor.so
+      bin-name-linux-normalized: cimguinodeeditor.so
+      bin-name-windows: Release/cimguinodeeditor.dll
+      bin-name-windows-normalized: cimguinodeeditor.dll
+      bin-name-osx: cimguinodeeditor.dylib
+      bin-name-osx-normalized: cimguinodeeditor.dylib
+      bin-name-android: cimguinodeeditor.so
+      bin-name-android-normalized: cimguinodeeditor.so
+      android-api: 23
+      pre-configure-steps: "bash scripts/setup_addon_build.sh"
+      checkout-self: true
+
   create-pr:
-    needs: [build-cimgui, build-cimplot, build-cimnodes, build-cimguizmo]
+    needs: [build-cimgui, build-cimplot, build-cimnodes, build-cimguizmo, build-imgui-node-editor]
     uses: JunaMeinhold/cmake-actions/.github/workflows/create-pr.yml@v1.x.x
     with:
         lib-name: "ImGui"

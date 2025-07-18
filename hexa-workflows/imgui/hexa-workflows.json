@@ -2,6 +2,6 @@
   "cimgui": "Hexa.NET.ImGui/native",
   "cimplot": "Hexa.NET.ImPlot/native",
   "cimnodes": "Hexa.NET.ImNodes/native",
-  "cimguizmo": "Hexa.NET.ImGuizmo/native"
+  "cimguizmo": "Hexa.NET.ImGuizmo/native",
   "cimguinodeeditor": "Hexa.NET.ImGuiNodeEditor/native"
 }
